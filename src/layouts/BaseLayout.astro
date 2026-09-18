@@ -1,0 +1,38 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+import getUi from "../i18n/ui";
+
+interface Props {
+	title: string;
+	description: string;
+}
+const { title, description } = Astro.props;
+const lang = Astro.currentLocale ?? "nb";
+const t = getUi(lang);
+---
+
+<html lang={lang}>
+	<head>
+		<meta charset="utf-8">
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+		<link rel="icon" href="/favicon.ico">
+		<meta name="viewport" content="width=device-width">
+		<meta name="generator" content={Astro.generator}>
+		<title>{title} - Mathias Hagen</title>
+		<meta name="description" content={description}>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<a href={getRelativeLocaleUrl(lang, "/")}>{t.nav.home}</a>
+				<a href={getRelativeLocaleUrl(lang, "/about")}>{t.nav.about}</a>
+				<a href={getRelativeLocaleUrl(lang, "/projects")}>{t.nav.projects}</a>
+				<a href={getRelativeLocaleUrl(lang, "/contact")}>{t.nav.contact}</a>
+			</nav>
+		</header>
+		<main>
+			<slot />
+		</main>
+		<footer></footer>
+	</body>
+</html>

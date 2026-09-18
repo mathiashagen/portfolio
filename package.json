@@ -12,7 +12,7 @@
 		"astro": "astro",
 		"lint": "biome lint",
 		"format": "biome format",
-		"check": "biome check"
+		"check": "biome check && astro check"
 	},
 	"dependencies": {
 		"astro": "^7.3.3"
@@ -21,6 +21,8 @@
 		"esbuild": true
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.5.14"
+		"@astrojs/check": "^0.9.10",
+		"@biomejs/biome": "2.5.14",
+		"typescript": "^6.0.3"
 	}
 }
