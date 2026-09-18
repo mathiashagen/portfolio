@@ -10,6 +10,21 @@ const nb = {
 		description: "Dette er min portefølje.",
 		heading: "Velkommen til min portefølje",
 	},
+	about: {
+		title: "Om",
+		description: "Dette er litt informasjon om meg.",
+		heading: "Om meg",
+	},
+	projects: {
+		title: "Prosjekter",
+		description: "Dette er en oversikt over mine prosjekter.",
+		heading: "Mine prosjekter",
+	},
+	contact: {
+		title: "Kontakt",
+		description: "Dette er hvordan du kan kontakte meg.",
+		heading: "Kontakt meg",
+	},
 };
 
 const en: typeof nb = {
@@ -24,17 +39,32 @@ const en: typeof nb = {
 		description: "This is my portfolio.",
 		heading: "Welcome to my portfolio",
 	},
+	about: {
+		title: "About",
+		description: "This is some information about me.",
+		heading: "About me",
+	},
+	projects: {
+		title: "Projects",
+		description: "This is an overview of my projects.",
+		heading: "My projects",
+	},
+	contact: {
+		title: "Contact",
+		description: "This is how you can contact me.",
+		heading: "Contact me",
+	},
 };
 
 const ui = { nb, en };
 
 const getUi = (locale: string | undefined) => ui[getLang(locale)];
 
-const getLang = (locale: string | undefined) => {
+const getLang = (locale: string | undefined): keyof typeof ui => {
 	if (locale !== undefined && Object.hasOwn(ui, locale)) {
 		return locale as keyof typeof ui;
 	}
-	return "nb" as keyof typeof ui;
+	return "nb";
 };
 
 export { getLang, getUi };

@@ -1,0 +1,21 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { getLang, getUi } from "../i18n/ui";
+
+const lang = getLang(Astro.currentLocale);
+const t = getUi(lang);
+
+const currentPage = Astro.url.pathname;
+const links: { href: string; label: string }[] = [
+	{ href: getRelativeLocaleUrl(lang, "/"), label: t.nav.home },
+	{ href: getRelativeLocaleUrl(lang, "/about"), label: t.nav.about },
+	{ href: getRelativeLocaleUrl(lang, "/projects"), label: t.nav.projects },
+	{ href: getRelativeLocaleUrl(lang, "/contact"), label: t.nav.contact },
+];
+---
+
+<nav>
+	{links.map((link) => (
+		<a href={link.href} aria-current={currentPage === link.href ? "page" : undefined}>{link.label}</a>
+	))}
+</nav>
