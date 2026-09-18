@@ -1,13 +1,13 @@
 ---
 import { getRelativeLocaleUrl } from "astro:i18n";
-import getUi from "../i18n/ui";
+import { getLang, getUi } from "../i18n/ui";
 
 interface Props {
 	title: string;
 	description: string;
 }
 const { title, description } = Astro.props;
-const lang = Astro.currentLocale ?? "nb";
+const lang = getLang(Astro.currentLocale);
 const t = getUi(lang);
 ---
 

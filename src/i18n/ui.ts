@@ -5,6 +5,11 @@ const nb = {
 		projects: "Prosjekter",
 		contact: "Kontakt",
 	},
+	home: {
+		title: "Velkommen",
+		description: "Dette er min portefølje.",
+		heading: "Velkommen til min portefølje",
+	},
 };
 
 const en: typeof nb = {
@@ -14,15 +19,22 @@ const en: typeof nb = {
 		projects: "Projects",
 		contact: "Contact",
 	},
+	home: {
+		title: "Home",
+		description: "This is my portfolio.",
+		heading: "Welcome to my portfolio",
+	},
 };
 
 const ui = { nb, en };
 
-const getUi = (locale: string | undefined = "nb") => {
-	if (Object.hasOwn(ui, locale)) {
-		return ui[locale as keyof typeof ui];
+const getUi = (locale: string | undefined) => ui[getLang(locale)];
+
+const getLang = (locale: string | undefined) => {
+	if (locale !== undefined && Object.hasOwn(ui, locale)) {
+		return locale as keyof typeof ui;
 	}
-	return ui.nb;
+	return "nb" as keyof typeof ui;
 };
 
-export default getUi;
+export { getLang, getUi };

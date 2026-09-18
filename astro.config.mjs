@@ -10,5 +10,5 @@ export default defineConfig({
 			prefixDefaultLocale: false,
 		},
 	},
-	trailingSlash: "always"
+	trailingSlash: "always",
 });

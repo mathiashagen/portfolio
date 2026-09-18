@@ -1,0 +1,10 @@
+---
+import { getUi } from "../../i18n/ui";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const t = getUi(Astro.currentLocale);
+---
+
+<BaseLayout title={t.home.title} description={t.home.description}>
+	<h1>{t.home.heading}</h1>
+</BaseLayout>

@@ -1,11 +1,5 @@
 ---
-import getUi from "../i18n/ui";
-import BaseLayout from "../layouts/BaseLayout.astro";
-
-const lang = Astro.currentLocale ?? "nb";
-const t = getUi(lang);
+import HomePage from "../components/pages/HomePage.astro";
 ---
 
-<BaseLayout title={t.nav.home} description="Welcome to my portfolio">
-	<h1>{t.nav.home}</h1>
-</BaseLayout>
+<HomePage />
