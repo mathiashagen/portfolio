@@ -2,15 +2,14 @@
 	--color-bg: #ffffff;
 	--color-text: #000000;
 	--color-accent: #007acc;
-	--font-body: 16px Arial, sans-serif;
+	--font-body: Arial, sans-serif;
+	--font-size-base: 1rem;
 }
 
 @media (prefers-color-scheme: dark) {
 	:root {
 		--color-bg: #000000;
 		--color-text: #ffffff;
-		--color-accent: #007acc;
-		--font-body: 16px Arial, sans-serif;
 	}
 }
 
@@ -18,4 +17,5 @@ body {
 	background: var(--color-bg);
 	color: var(--color-text);
 	font-family: var(--font-body);
+	font-size: var(--font-size-base);
 }
