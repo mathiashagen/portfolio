@@ -1,24 +1,18 @@
 ---
-import { getCollection } from "astro:content";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { getLang, getUi } from "../../i18n/ui";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { getProjectSlug } from "../../lib/projects";
+import { getProjectSlug, getProjects } from "../../lib/projects";
 
 const t = getUi(Astro.currentLocale);
 const lang = getLang(Astro.currentLocale);
-const projects = await getCollection("projects", ({ id }) =>
-	id.startsWith(`${lang}/`),
-);
-const sortedProjects = projects.toSorted(
-	(a, b) => b.data.date.getTime() - a.data.date.getTime(),
-);
+const projects = await getProjects(lang);
 ---
 
 <BaseLayout title={t.projects.title} description={t.projects.description}>
 	<h1>{t.projects.heading}</h1>
 	<ul>
-		{sortedProjects.map((project) => (
+		{projects.map((project) => (
 	<li>
 		<h2><a href={getRelativeLocaleUrl(lang, `projects/${getProjectSlug(project)}`)}>{project.data.title}</a></h2>
 		<p>{project.data.summary}</p>

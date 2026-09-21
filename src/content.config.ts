@@ -9,14 +9,17 @@ const projects = defineCollection({
 		base: "./src/content/projects",
 		pattern: "**/*.md",
 	}),
-	schema: z.object({
-		title: z.string(),
-		summary: z.string(),
-		tech: z.array(z.string()),
-		repo: z.url().optional(),
-		demo: z.url().optional(),
-		date: z.coerce.date(),
-	}),
+	schema: ({ image }) =>
+		z.object({
+			title: z.string(),
+			summary: z.string(),
+			tech: z.array(z.string()),
+			repo: z.url().optional(),
+			demo: z.url().optional(),
+			date: z.coerce.date(),
+			cover: image(),
+			coverAlt: z.string().min(1),
+		}),
 });
 
 export const collections = {
