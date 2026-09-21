@@ -1,0 +1,35 @@
+---
+import { type CollectionEntry, render } from "astro:content";
+import { getUi } from "../../i18n/ui";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+interface Props {
+	project: CollectionEntry<"projects">;
+}
+
+const t = getUi(Astro.currentLocale);
+const { project } = Astro.props;
+const { Content } = await render(project);
+---
+
+<BaseLayout title={project.data.title} description={project.data.summary}>
+	<article>
+		<h1>{project.data.title}</h1>
+		<Content />
+		<p>{project.data.tech.join(", ")}</p>
+		{project.data.repo && (
+            <p>
+                <a href={project.data.repo} rel="noopener noreferrer">
+                    {t.projects.repo}
+                </a>
+            </p>
+        )}
+		{project.data.demo && (
+            <p>
+                <a href={project.data.demo} rel="noopener noreferrer">
+                    {t.projects.demo}
+                </a>
+            </p>
+        )}
+	</article>
+</BaseLayout>

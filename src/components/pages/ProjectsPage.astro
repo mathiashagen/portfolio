@@ -1,7 +1,9 @@
 ---
 import { getCollection } from "astro:content";
+import { getRelativeLocaleUrl } from "astro:i18n";
 import { getLang, getUi } from "../../i18n/ui";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getProjectSlug } from "../../lib/projects";
 
 const t = getUi(Astro.currentLocale);
 const lang = getLang(Astro.currentLocale);
@@ -17,25 +19,25 @@ const sortedProjects = projects.toSorted(
 	<h1>{t.projects.heading}</h1>
 	<ul>
 		{sortedProjects.map((project) => (
-			<li>
-				<h2>{project.data.title}</h2>
-				<p>{project.data.summary}</p>
-				<p>{project.data.tech.join(", ")}</p>
-				{project.data.repo && (
-					<p>
-						<a href={project.data.repo} rel="noopener noreferrer">
-							{t.projects.repo}
-						</a>
-					</p>
-				)}
-				{project.data.demo && (
-					<p>
-						<a href={project.data.demo} rel="noopener noreferrer">
-							{t.projects.demo}
-						</a>
-					</p>
-				)}
-			</li>
-		))}
+	<li>
+		<h2><a href={getRelativeLocaleUrl(lang, `projects/${getProjectSlug(project)}`)}>{project.data.title}</a></h2>
+		<p>{project.data.summary}</p>
+		<p>{project.data.tech.join(", ")}</p>
+		{project.data.repo && (
+			<p>
+				<a href={project.data.repo} rel="noopener noreferrer">
+					{t.projects.repo}
+				</a>
+			</p>
+		)}
+		{project.data.demo && (
+			<p>
+				<a href={project.data.demo} rel="noopener noreferrer">
+					{t.projects.demo}
+				</a>
+			</p>
+		)}
+	</li>
+))}
 	</ul>
 </BaseLayout>
