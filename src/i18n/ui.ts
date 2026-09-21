@@ -19,6 +19,8 @@ const nb = {
 		title: "Prosjekter",
 		description: "Dette er en oversikt over mine prosjekter.",
 		heading: "Mine prosjekter",
+		repo: "Repo",
+		demo: "Demo",
 	},
 	contact: {
 		title: "Kontakt",
@@ -48,6 +50,8 @@ const en: typeof nb = {
 		title: "Projects",
 		description: "This is an overview of my projects.",
 		heading: "My projects",
+		repo: "Repo",
+		demo: "Demo",
 	},
 	contact: {
 		title: "Contact",

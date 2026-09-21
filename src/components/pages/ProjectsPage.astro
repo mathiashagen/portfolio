@@ -1,10 +1,41 @@
 ---
-import { getUi } from "../../i18n/ui";
+import { getCollection } from "astro:content";
+import { getLang, getUi } from "../../i18n/ui";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const t = getUi(Astro.currentLocale);
+const lang = getLang(Astro.currentLocale);
+const projects = await getCollection("projects", ({ id }) =>
+	id.startsWith(`${lang}/`),
+);
+const sortedProjects = projects.toSorted(
+	(a, b) => b.data.date.getTime() - a.data.date.getTime(),
+);
 ---
 
 <BaseLayout title={t.projects.title} description={t.projects.description}>
 	<h1>{t.projects.heading}</h1>
+	<ul>
+		{sortedProjects.map((project) => (
+			<li>
+				<h2>{project.data.title}</h2>
+				<p>{project.data.summary}</p>
+				<p>{project.data.tech.join(", ")}</p>
+				{project.data.repo && (
+					<p>
+						<a href={project.data.repo} rel="noopener noreferrer">
+							{t.projects.repo}
+						</a>
+					</p>
+				)}
+				{project.data.demo && (
+					<p>
+						<a href={project.data.demo} rel="noopener noreferrer">
+							{t.projects.demo}
+						</a>
+					</p>
+				)}
+			</li>
+		))}
+	</ul>
 </BaseLayout>
