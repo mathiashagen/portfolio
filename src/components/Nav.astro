@@ -19,3 +19,14 @@ const links: { href: string; label: string }[] = [
 		<a href={link.href} aria-current={currentPage === link.href ? "page" : undefined}>{link.label}</a>
 	))}
 </nav>
+
+<style>
+nav {
+	display: flex;
+	gap: 1rem;
+}
+a[aria-current="page"] {
+	font-weight: bold;
+	color: var(--color-accent);
+}
+</style>

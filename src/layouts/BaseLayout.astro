@@ -1,6 +1,7 @@
 ---
 import Nav from "../components/Nav.astro";
-import { getLang, getUi } from "../i18n/ui";
+import { getLang } from "../i18n/ui";
+import "../styles/global.css";
 
 interface Props {
 	title: string;
@@ -8,7 +9,6 @@ interface Props {
 }
 const { title, description } = Astro.props;
 const lang = getLang(Astro.currentLocale);
-const t = getUi(lang);
 ---
 
 <html lang={lang}>
@@ -28,6 +28,15 @@ const t = getUi(lang);
 		<main>
 			<slot />
 		</main>
-		<footer></footer>
+		<footer>
+			<p>&copy; {new Date().getFullYear()} Mathias Hagen</p>
+		</footer>
 	</body>
 </html>
+
+<style>
+main {
+	max-width: 800px;
+	margin: 0 auto;
+}
+</style>
