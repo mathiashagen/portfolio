@@ -20,6 +20,8 @@ const { Content } = await render(project);
 			src={project.data.cover}
 			alt={project.data.coverAlt}
 			loading="eager"
+			widths={[400, 800, 1600]}
+			sizes="(max-width: 800px) 100vw, 800px"
 		/>
 		<Content />
 		<p>{project.data.tech.join(", ")}</p>
