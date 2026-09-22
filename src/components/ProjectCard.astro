@@ -34,10 +34,30 @@ const lang = getLang(Astro.currentLocale);
 
 <style>
 article {
+	position: relative;
 	background: var(--color-surface);
 	border: 1px solid var(--color-border);
 	border-radius: 8px;
-	padding: 1.5rem;
+	padding: var(--space-4);
+	transition: border-color 0.15s;
+}
+article:hover {
+	border-color: var(--color-accent);
+}
+/* The title link covers the whole card, so the image is clickable too, while
+   there is still only one link to tab to and read out. */
+a::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	border-radius: inherit;
+}
+a:focus-visible {
+	outline: none;
+}
+article:has(a:focus-visible) {
+	outline: 2px solid var(--color-accent);
+	outline-offset: 2px;
 }
 img {
 	display: block;

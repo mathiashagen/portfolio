@@ -48,9 +48,13 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 	<body>
 		<header>
 			<a href={getRelativeLocaleUrl(lang, "/")} class="brand">~/mathias</a>
-			<Nav />
-			<ThemeToggle />
-			<LanguageSwitcher />
+			<div class="nav-area">
+				<Nav />
+			</div>
+			<div class="controls">
+				<ThemeToggle />
+				<LanguageSwitcher />
+			</div>
 		</header>
 		<main>
 			<slot />
@@ -62,26 +66,66 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 </html>
 
 <style>
-header {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	gap: 1rem;
-}
 main,
 header,
 footer {
-	max-width: 800px;
+	width: 100%;
+	max-width: calc(var(--content-width) + 2 * var(--space-3));
 	margin-inline: auto;
-	padding-inline: 1rem;
+	padding-inline: var(--space-3);
 }
+
+/* Phones: brand and buttons share the first row, the nav gets its own. */
+header {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	grid-template-areas:
+		"brand controls"
+		"nav nav";
+	align-items: center;
+	column-gap: var(--space-3);
+	padding-block: var(--space-2);
+	margin-bottom: var(--space-4);
+	border-bottom: 1px solid var(--color-border);
+}
+
+/* Wider screens: everything on one row, nav next to the brand. */
+@media (min-width: 640px) {
+	header {
+		grid-template-columns: auto 1fr auto;
+		grid-template-areas: "brand nav controls";
+		column-gap: var(--space-4);
+	}
+}
+
 .brand {
+	grid-area: brand;
 	font-family: var(--font-mono);
 	font-weight: 700;
 }
+.nav-area {
+	grid-area: nav;
+}
+.controls {
+	grid-area: controls;
+	display: flex;
+	align-items: center;
+	gap: var(--space-2);
+}
+
+main {
+	flex: 1;
+}
+
 footer {
+	margin-top: var(--space-6);
+	padding-block: var(--space-4);
+	border-top: 1px solid var(--color-border);
 	color: var(--color-muted);
 	font-family: var(--font-mono);
 	font-size: 0.875rem;
+}
+footer p {
+	margin: 0;
 }
 </style>

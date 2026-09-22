@@ -21,12 +21,23 @@ const featuredProject = await getFeaturedProject(lang);
 	<section>
 		<h2>{t.home.featured}</h2>
 		<ProjectCard project={featuredProject} headingLevel={3} />
-		<a href={getRelativeLocaleUrl(lang, "projects")}>{t.home.allProjects}</a>
+		<p class="more">
+			<a href={getRelativeLocaleUrl(lang, "projects")}>
+				{t.home.allProjects} <span aria-hidden="true">→</span>
+			</a>
+		</p>
 	</section>
 )}
 </BaseLayout>
 
 <style>
+section + section {
+	margin-top: var(--space-5);
+}
+.more {
+	margin-top: var(--space-3);
+	font-family: var(--font-mono);
+}
 .prompt,
 .tagline {
 	font-family: var(--font-mono);

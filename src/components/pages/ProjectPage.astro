@@ -16,7 +16,29 @@ const { Content } = await render(project);
 
 <BaseLayout title={project.data.title} description={project.data.summary}>
 	<article>
-		<h1>{project.data.title}</h1>
+		<header class="intro">
+			<h1>{project.data.title}</h1>
+			<p class="lede">{project.data.summary}</p>
+			<TechTags tech={project.data.tech} />
+			{(project.data.repo || project.data.demo) && (
+	<ul class="links">
+		{project.data.repo && (
+			<li>
+				<a href={project.data.repo} rel="noopener noreferrer">
+					{t.projects.repo} <span aria-hidden="true">↗</span>
+				</a>
+			</li>
+		)}
+		{project.data.demo && (
+			<li>
+				<a href={project.data.demo} rel="noopener noreferrer">
+					{t.projects.demo} <span aria-hidden="true">↗</span>
+				</a>
+			</li>
+		)}
+	</ul>
+)}
+		</header>
 		<Image
 			src={project.data.cover}
 			alt={project.data.coverAlt}
@@ -26,20 +48,47 @@ const { Content } = await render(project);
 			sizes="(max-width: 800px) 100vw, 800px"
 		/>
 		<div class="prose"><Content /></div>
-		<TechTags tech={project.data.tech} />
-		{project.data.repo && (
-	<p>
-		<a href={project.data.repo} rel="noopener noreferrer">
-			{t.projects.repo}
-		</a>
-	</p>
-)}
-		{project.data.demo && (
-	<p>
-		<a href={project.data.demo} rel="noopener noreferrer">
-			{t.projects.demo}
-		</a>
-	</p>
-)}
 	</article>
 </BaseLayout>
+
+<style>
+.intro {
+	margin-bottom: var(--space-4);
+}
+h1 {
+	margin-bottom: var(--space-2);
+}
+.lede {
+	margin-block: 0 var(--space-3);
+	color: var(--color-muted);
+	max-width: 70ch;
+}
+.links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-2);
+	list-style: none;
+	padding: 0;
+	margin: var(--space-3) 0 0;
+}
+.links a {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--space-1);
+	min-height: var(--tap-size);
+	padding-inline: var(--space-3);
+	border: 1px solid var(--color-accent);
+	border-radius: 6px;
+	font-family: var(--font-mono);
+	font-size: 0.875rem;
+}
+.links a:hover {
+	background: var(--color-surface);
+	text-decoration: none;
+}
+img {
+	display: block;
+	border: 1px solid var(--color-border);
+	border-radius: 6px;
+}
+</style>

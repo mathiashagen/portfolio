@@ -28,7 +28,8 @@ const links: { href: string; label: string }[] = [
 <style>
 nav {
 	display: flex;
-	gap: 1rem;
+	flex-wrap: wrap;
+	column-gap: var(--space-2);
 }
 a[aria-current="page"] {
 	font-weight: bold;
@@ -38,7 +39,7 @@ a {
 	min-height: var(--tap-size);
 	display: inline-flex;
 	align-items: center;
-	padding-inline: 5px;
+	padding-inline: var(--space-1);
 	font-family: var(--font-mono);
 	color: var(--color-text);
 }
