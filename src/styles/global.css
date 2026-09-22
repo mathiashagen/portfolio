@@ -1,12 +1,13 @@
 :root {
 	color-scheme: light dark;
 
-	--color-bg: light-dark(#ffffff, #000000);
+	--color-bg: light-dark(#ffffff, #0d1117);
+	--color-surface: light-dark(#f6f8fa, #161b22);
+	--color-border: light-dark(#d1d9e0, #30363d);
 	--color-text: light-dark(#000000, #ffffff);
+	--color-muted: light-dark(#59636e, #9198a1);
+	--color-accent: light-dark(#1a7f37, #3fb950);
 
-	--color-accent: #007acc;
-
-	--font-body: Arial, sans-serif;
 	--font-size-base: 1rem;
 
 	--tap-size: 2.75rem;
@@ -23,7 +24,8 @@
 body {
 	background: var(--color-bg);
 	color: var(--color-text);
-	font-family: var(--font-body);
+	font-family: var(--font-sans);
+	line-height: 1.6;
 	font-size: var(--font-size-base);
 }
 
@@ -36,4 +38,27 @@ body {
 :focus-visible {
 	outline: 2px solid var(--color-accent);
 	outline-offset: 2px;
+}
+
+h1,
+h2,
+h3,
+code,
+pre {
+	font-family: var(--font-mono);
+}
+
+h1 {
+	font-size: 2rem;
+	line-height: 1.2;
+}
+
+h2 {
+	font-size: 1.5rem;
+	line-height: 1.2;
+}
+
+h3 {
+	font-size: 1.25rem;
+	line-height: 1.2;
 }

@@ -34,5 +34,9 @@ a {
 	display: inline-flex;
 	align-items: center;
 	padding-inline: 5px;
+	font-family: var(--font-mono);
+}
+a[aria-current="page"]::before {
+	content: "> " / "";
 }
 </style>

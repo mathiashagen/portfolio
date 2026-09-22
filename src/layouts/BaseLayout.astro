@@ -1,9 +1,11 @@
 ---
+import { getRelativeLocaleUrl } from "astro:i18n";
 import LanguageSwitcher from "../components/LanguageSwitcher.astro";
 import Nav from "../components/Nav.astro";
 import ThemeToggle from "../components/ThemeToggle.astro";
 import { getLang, getUi } from "../i18n/ui";
 import "../styles/global.css";
+import { Font } from "astro:assets";
 
 interface Props {
 	title: string;
@@ -39,9 +41,12 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 			}
 		} catch {}
 		</script>
+		<Font cssVariable="--font-mono" preload />
+		<Font cssVariable="--font-sans" preload />
 	</head>
 	<body>
 		<header>
+			<a href={getRelativeLocaleUrl(lang, "/")} class="brand">~/mathias</a>
 			<Nav />
 			<ThemeToggle />
 			<LanguageSwitcher />
@@ -65,5 +70,10 @@ header {
 main {
 	max-width: 800px;
 	margin: 0 auto;
+}
+
+.brand {
+	font-family: var(--font-mono);
+	font-weight: 700;
 }
 </style>
