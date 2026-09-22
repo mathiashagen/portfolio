@@ -18,11 +18,6 @@ const nb = {
 		featured: "Utvalgt prosjekt",
 		allProjects: "Alle prosjekter",
 	},
-	about: {
-		title: "Om",
-		description: "Dette er litt informasjon om meg.",
-		heading: "Om meg",
-	},
 	projects: {
 		title: "Prosjekter",
 		description: "Dette er en oversikt over mine prosjekter.",
@@ -56,11 +51,6 @@ const en: typeof nb = {
 			"I work with C#/.NET and TypeScript day to day, and spend my spare time learning C++ by building things that actually run, like a real-time data pipeline for ship traffic along the Norwegian coast.",
 		featured: "Featured project",
 		allProjects: "All projects",
-	},
-	about: {
-		title: "About",
-		description: "This is some information about me.",
-		heading: "About me",
 	},
 	projects: {
 		title: "Projects",

@@ -1,10 +1,19 @@
 ---
-import { getUi } from "../../i18n/ui";
+import { getEntry, render } from "astro:content";
+import { getLang } from "../../i18n/ui";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
-const t = getUi(Astro.currentLocale);
+const lang = getLang(Astro.currentLocale);
+const entry = await getEntry("about", lang);
+if (!entry) {
+	throw new Error(
+		`About page: no entry "${lang}" in the about collection. Create src/content/about/${lang}.md.`,
+	);
+}
+const { Content } = await render(entry);
 ---
 
-<BaseLayout title={t.about.title} description={t.about.description}>
-	<h1>{t.about.heading}</h1>
+<BaseLayout title={entry.data.title} description={entry.data.description}>
+	<h1>{entry.data.title}</h1>
+	<div class="prose"><Content /></div>
 </BaseLayout>
