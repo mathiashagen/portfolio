@@ -1,4 +1,6 @@
 // @ts-check
+
+import sitemap from "@astrojs/sitemap";
 import { defineConfig } from "astro/config";
 
 // https://astro.build/config
@@ -10,5 +12,12 @@ export default defineConfig({
 			prefixDefaultLocale: false,
 		},
 	},
+
 	trailingSlash: "always",
+	site: "https://mathiashagen.dev",
+	integrations: [
+		sitemap({
+			i18n: { defaultLocale: "nb", locales: { nb: "nb-NO", en: "en-US" } },
+		}),
+	],
 });

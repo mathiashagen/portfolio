@@ -28,6 +28,7 @@ const nb = {
 		heading: "Kontakt meg",
 	},
 	theme: { toggle: "Mørk modus" },
+	meta: { ogLocale: "nb_NO" },
 };
 
 const en: typeof nb = {
@@ -60,6 +61,7 @@ const en: typeof nb = {
 		heading: "Contact me",
 	},
 	theme: { toggle: "Dark mode" },
+	meta: { ogLocale: "en_US" },
 };
 
 const ui = { nb, en };

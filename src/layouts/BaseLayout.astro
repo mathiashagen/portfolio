@@ -1,7 +1,7 @@
 ---
 import Nav from "../components/Nav.astro";
 import ThemeToggle from "../components/ThemeToggle.astro";
-import { getLang } from "../i18n/ui";
+import { getLang, getUi } from "../i18n/ui";
 import "../styles/global.css";
 
 interface Props {
@@ -10,6 +10,8 @@ interface Props {
 }
 const { title, description } = Astro.props;
 const lang = getLang(Astro.currentLocale);
+const t = getUi(lang);
+const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <html lang={lang}>
@@ -17,8 +19,15 @@ const lang = getLang(Astro.currentLocale);
 		<meta charset="utf-8">
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 		<link rel="icon" href="/favicon.ico">
+		<link rel="canonical" href={canonical}>
+		<link rel="sitemap" href="/sitemap-index.xml">
 		<meta name="viewport" content="width=device-width">
 		<meta name="generator" content={Astro.generator}>
+		<meta property="og:title" content={title}>
+		<meta property="og:description" content={description}>
+		<meta property="og:url" content={canonical}>
+		<meta property="og:type" content="website">
+		<meta property="og:locale" content={t.meta.ogLocale}>
 		<title>{title} - Mathias Hagen</title>
 		<meta name="description" content={description}>
 		<script is:inline>
