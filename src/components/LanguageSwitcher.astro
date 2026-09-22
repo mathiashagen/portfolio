@@ -5,6 +5,6 @@ const lang = getLang(Astro.currentLocale);
 const altUrl = getAlternateUrl(Astro.url.pathname, lang);
 ---
 
-<a href={altUrl.href} hreflang={altUrl.lang} lang={lang}>
+<a href={altUrl.href} hreflang={altUrl.lang} lang={altUrl.lang}>
 	{getUi(altUrl.lang).meta.languageName}
 </a>
