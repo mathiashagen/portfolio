@@ -10,18 +10,19 @@ const nb = {
 	home: {
 		title: "Hjem",
 		description:
-			"Mathias Hagen er utvikler med bakgrunn i C#/.NET og TypeScript, og bygger sanntidssystemer i C++ på fritiden.",
+			"Mathias Hagen er fullstack-utvikler i Ålesund. Han jobber med C#/.NET og TypeScript til daglig og lærer C++ på fritiden.",
 		name: "Mathias Hagen",
-		tagline: "utvikler · C# · TypeScript · C++",
+		tagline: "fullstack · C# · TypeScript · C++",
 		intro:
-			"Jeg jobber til daglig med C#/.NET og TypeScript, og bruker fritiden på å lære C++ ved å bygge ting som faktisk kjører, som en sanntids datapipeline for skipstrafikken langs norskekysten.",
+			"Jeg jobber med C#/.NET og TypeScript til daglig. På fritiden lærer jeg C++, og det største prosjektet så langt er en datapipeline som følger skipstrafikken langs norskekysten i sanntid.",
 		featured: "Utvalgt prosjekt",
 		allProjects: "Alle prosjekter",
 	},
 	projects: {
 		title: "Prosjekter",
-		description: "Dette er en oversikt over mine prosjekter.",
-		heading: "Mine prosjekter",
+		description:
+			"Prosjekter Mathias Hagen har laget på fritiden, med kildekode og demo.",
+		heading: "Ting jeg har laget",
 		repo: "Repo",
 		demo: "Demo",
 	},
@@ -31,7 +32,7 @@ const nb = {
 			"Ta kontakt med Mathias Hagen på e-post, LinkedIn eller GitHub.",
 		heading: "Ta kontakt",
 		intro:
-			"Jeg svarer gjerne på spørsmål om prosjektene mine, jobb eller samarbeid. E-post er raskest, og CV sender jeg gjerne på forespørsel.",
+			"Send meg gjerne en e-post hvis du lurer på noe om prosjektene, jobb eller noe annet. Der svarer jeg raskest, og CV får du hvis du spør.",
 		email: "e-post",
 		linkedin: "linkedin",
 		github: "github",
@@ -55,18 +56,18 @@ const en: typeof nb = {
 	home: {
 		title: "Home",
 		description:
-			"Mathias Hagen is a developer with a background in C#/.NET and TypeScript who builds real-time systems in C++ outside work.",
+			"Mathias Hagen is a fullstack developer in Ålesund, Norway. He works with C#/.NET and TypeScript and is learning C++ in his spare time.",
 		name: "Mathias Hagen",
-		tagline: "developer · C# · TypeScript · C++",
+		tagline: "fullstack · C# · TypeScript · C++",
 		intro:
-			"I work with C#/.NET and TypeScript day to day, and spend my spare time learning C++ by building things that actually run, like a real-time data pipeline for ship traffic along the Norwegian coast.",
+			"I work with C#/.NET and TypeScript during the day. In my spare time I'm learning C++, and the biggest project so far is a pipeline that tracks ship traffic along the Norwegian coast in real time.",
 		featured: "Featured project",
 		allProjects: "All projects",
 	},
 	projects: {
 		title: "Projects",
-		description: "This is an overview of my projects.",
-		heading: "My projects",
+		description: "Side projects by Mathias Hagen, with source code and demos.",
+		heading: "Things I've built",
 		repo: "Repo",
 		demo: "Demo",
 	},
@@ -76,7 +77,7 @@ const en: typeof nb = {
 			"Get in touch with Mathias Hagen by email, LinkedIn or GitHub.",
 		heading: "Get in touch",
 		intro:
-			"I'm happy to answer questions about my projects, work or collaboration. Email is the fastest way to reach me, and my CV is available on request.",
+			"Feel free to email me if you have questions about the projects, work or anything else. That's where I answer fastest, and I'll send my CV if you ask.",
 		email: "email",
 		linkedin: "linkedin",
 		github: "github",

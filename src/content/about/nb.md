@@ -3,30 +3,29 @@ title: Om meg
 description: Mathias Hagen er fullstack-utvikler i LocalHost AS i Ålesund, med bachelor i dataingeniørfag fra NTNU og fagbrev som dataelektroniker.
 ---
 
-Jeg er fullstack-utvikler i LocalHost AS i Ålesund, der jeg jobber med SaaS-plattformen
-Overviu hele veien fra database til skjerm: .NET og RavenDB i backend, React og TypeScript i
-frontend. Jeg har vært med fra tidlig fase og mot kommersialisering, og har blant annet bygget
-en MCP-server som gjør plattformdataene tilgjengelige for AI-assistenter.
+Jeg er fullstack-utvikler i LocalHost AS i Ålesund og jobber med SaaS-plattformen Overviu,
+med .NET og RavenDB i backend og React og TypeScript i frontend. Jeg har vært med siden tidlig
+i utviklingen, og har blant annet laget en MCP-server som lar AI-assistenter hente data fra
+plattformen.
 
 ## Veien hit
 
-Jeg startet som lærling i dataelektronikerfaget, med drift av servere og nettverk, support og
-kundebehandling. Etter fagbrevet tok jeg bachelor i dataingeniørfag ved NTNU i Ålesund via
-Y-veien. Den bakgrunnen gjør at jeg tenker på hvordan ting skal driftes og brukes, ikke bare
-hvordan de skal skrives.
+Jeg startet som lærling i dataelektronikerfaget, der jeg drev servere og nettverk og hadde
+support og kundekontakt. Etter fagbrevet tok jeg bachelor i dataingeniørfag ved NTNU i Ålesund
+via Y-veien. Fra driften har jeg med meg en vane med å tenke på hva som skjer med koden etter
+at den er satt i produksjon.
 
 ## Hva jeg liker å jobbe med
 
-Jeg liker problemer der det ikke holder at koden fungerer, men der jeg må forstå hvorfor den
-fungerer. Et system som skal kjøre i ukevis uten tilsyn, en protokoll som må dekodes bit for
-bit, eller et grensesnitt som skal føles raskt selv om dataene bak ikke er det.
+Jeg liker best oppgaver jeg må forstå skikkelig før jeg får dem til, som systemer som skal gå
+i ukevis uten at noen følger med, eller protokoller der hver bit betyr noe.
 
 ## Utenom jobb
 
-På fritiden lærer jeg meg nye språk og verktøy ved å bygge ting som faktisk skal kjøre.
-[AIS-pipeline](/projects/ais-pipeline/) startet som et prosjekt for å lære moderne C++ skikkelig,
-og kjører nå døgnet rundt på en hjemmeserver med Proxmox og Docker. Denne siden er bygget på
-samme måte, som et prosjekt for å lære Astro.
+På fritiden lærer jeg nye språk og verktøy ved å bygge noe som skal stå i drift, ikke bare
+øvingsoppgaver. [AIS-pipeline](/projects/ais-pipeline/) startet som en måte å lære moderne C++
+skikkelig på, og går nå døgnet rundt på hjemmeserveren min med Proxmox og Docker. Denne siden
+lagde jeg for å lære Astro.
 
 ## Teknologier
 
