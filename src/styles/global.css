@@ -62,3 +62,8 @@ h3 {
 	font-size: 1.25rem;
 	line-height: 1.2;
 }
+
+img {
+	max-width: 100%;
+	height: auto;
+}

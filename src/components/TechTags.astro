@@ -1,0 +1,29 @@
+---
+interface Props {
+	tech: string[];
+}
+const { tech } = Astro.props;
+---
+
+<ul class="tags">
+	{tech.map((tech) => (
+        <li>{tech}</li>
+    ))}
+</ul>
+
+<style>
+li {
+	font-family: var(--font-mono);
+	font-size: small;
+	border: 1px solid var(--color-border);
+	border-radius: 5px;
+	padding: 5px;
+}
+ul {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5px;
+	list-style: none;
+	padding: 0;
+}
+</style>

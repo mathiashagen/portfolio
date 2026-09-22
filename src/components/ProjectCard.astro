@@ -1,0 +1,39 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { getLang } from "../i18n/ui";
+import { getProjectSlug } from "../lib/projects";
+import TechTags from "./TechTags.astro";
+
+interface Props {
+	project: CollectionEntry<"projects">;
+}
+const { project } = Astro.props;
+const lang = getLang(Astro.currentLocale);
+---
+
+<article>
+	<Image
+		src={project.data.cover}
+		alt={project.data.coverAlt}
+		sizes="(max-width: 800px) 100vw, 800px"
+		widths={[400, 800]}
+	/>
+	<h2>
+		<a href={getRelativeLocaleUrl(lang, `projects/${getProjectSlug(project)}`)}
+			>{project.data.title}</a
+		>
+	</h2>
+	<p>{project.data.summary}</p>
+	<TechTags tech={project.data.tech} />
+</article>
+
+<style>
+article {
+	background: var(--color-surface);
+	border: 1px solid var(--color-border);
+	border-radius: 8px;
+	padding: 1.5rem;
+}
+</style>

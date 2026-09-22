@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import { type CollectionEntry, render } from "astro:content";
 import { getUi } from "../../i18n/ui";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import TechTags from "../TechTags.astro";
 
 interface Props {
 	project: CollectionEntry<"projects">;
@@ -23,8 +24,8 @@ const { Content } = await render(project);
 			widths={[400, 800, 1600]}
 			sizes="(max-width: 800px) 100vw, 800px"
 		/>
-		<Content />
-		<p>{project.data.tech.join(", ")}</p>
+		<div class="prose"><Content /></div>
+		<TechTags tech={project.data.tech} />
 		{project.data.repo && (
 	<p>
 		<a href={project.data.repo} rel="noopener noreferrer">
@@ -41,3 +42,15 @@ const { Content } = await render(project);
 )}
 	</article>
 </BaseLayout>
+
+<style>
+.prose :global(h2) {
+	margin-top: 2.5rem;
+}
+.prose :global(p) {
+	margin-block: 1rem;
+}
+.prose :global(ul) {
+	padding-left: 1.25rem;
+}
+</style>

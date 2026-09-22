@@ -1,8 +1,8 @@
 ---
-import { getRelativeLocaleUrl } from "astro:i18n";
 import { getLang, getUi } from "../../i18n/ui";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { getProjectSlug, getProjects } from "../../lib/projects";
+import { getProjects } from "../../lib/projects";
+import ProjectCard from "../ProjectCard.astro";
 
 const t = getUi(Astro.currentLocale);
 const lang = getLang(Astro.currentLocale);
@@ -13,25 +13,18 @@ const projects = await getProjects(lang);
 	<h1>{t.projects.heading}</h1>
 	<ul>
 		{projects.map((project) => (
-	<li>
-		<h2><a href={getRelativeLocaleUrl(lang, `projects/${getProjectSlug(project)}`)}>{project.data.title}</a></h2>
-		<p>{project.data.summary}</p>
-		<p>{project.data.tech.join(", ")}</p>
-		{project.data.repo && (
-			<p>
-				<a href={project.data.repo} rel="noopener noreferrer">
-					{t.projects.repo}
-				</a>
-			</p>
-		)}
-		{project.data.demo && (
-			<p>
-				<a href={project.data.demo} rel="noopener noreferrer">
-					{t.projects.demo}
-				</a>
-			</p>
-		)}
-	</li>
-))}
+			<li>
+				<ProjectCard project={project} />
+			</li>
+		))}
 	</ul>
 </BaseLayout>
+
+<style>
+ul {
+	list-style: none;
+	padding: 0;
+	display: grid;
+	gap: 1.5rem;
+}
+</style>
