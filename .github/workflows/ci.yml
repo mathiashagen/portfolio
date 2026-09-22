@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      # Reads the pnpm version from "packageManager" in package.json.
+      - uses: pnpm/action-setup@v6
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      # Biome (lint + format) and astro check (types).
+      - run: pnpm check
+
+      # An image the build could not optimize only logs a warning and still
+      # exits 0, which would ship a page pointing at a missing file. Fail on it.
+      # shell: bash turns on pipefail, so a failing build is not hidden by tee.
+      - name: Build
+        shell: bash
+        run: |
+          pnpm build 2>&1 | tee build.log
+          if grep -q "\[WARN\]" build.log; then
+            echo "::error::The build logged warnings, see above."
+            exit 1
+          fi
+
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - run: docker build --tag portfolio-web .
