@@ -2,6 +2,7 @@
 title: Portefølje
 summary: Denne siden. En tospråklig portefølje bygget i Astro som et prosjekt for å lære rammeverket, med null rammeverks-JavaScript og 100 i alle Lighthouse-kategorier.
 tech: [Astro, TypeScript, CSS, Biome]
+repo: https://github.com/mathiashagen/portfolio
 demo: https://mathiashagen.dev
 date: 2026-09-17
 cover: ../../../assets/projects/portfolio.png

@@ -2,6 +2,7 @@
 title: Portfolio
 summary: This site. A bilingual portfolio built with Astro as a project to learn the framework, with zero framework JavaScript and 100 in every Lighthouse category.
 tech: [Astro, TypeScript, CSS, Biome]
+repo: https://github.com/mathiashagen/portfolio
 demo: https://mathiashagen.dev
 date: 2026-09-17
 cover: ../../../assets/projects/portfolio.png
