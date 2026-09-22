@@ -1,5 +1,6 @@
 ---
 import Nav from "../components/Nav.astro";
+import ThemeToggle from "../components/ThemeToggle.astro";
 import { getLang } from "../i18n/ui";
 import "../styles/global.css";
 
@@ -20,10 +21,19 @@ const lang = getLang(Astro.currentLocale);
 		<meta name="generator" content={Astro.generator}>
 		<title>{title} - Mathias Hagen</title>
 		<meta name="description" content={description}>
+		<script is:inline>
+		try {
+			const theme = localStorage.getItem("theme");
+			if (theme === "light" || theme === "dark") {
+				document.documentElement.dataset.theme = theme;
+			}
+		} catch {}
+		</script>
 	</head>
 	<body>
 		<header>
 			<Nav />
+			<ThemeToggle />
 		</header>
 		<main>
 			<slot />

@@ -1,0 +1,43 @@
+---
+import { getLang, getUi } from "../i18n/ui";
+
+const lang = getLang(Astro.currentLocale);
+const t = getUi(lang);
+---
+
+<button type="button" data-theme-toggle aria-pressed="false" hidden>
+	{t.theme.toggle}
+</button>
+
+<script>
+const root = document.documentElement;
+const media = window.matchMedia("(prefers-color-scheme: dark)");
+const buttons = document.querySelectorAll<HTMLButtonElement>(
+	"[data-theme-toggle]",
+);
+
+const currentTheme = () =>
+	root.dataset.theme ?? (media.matches ? "dark" : "light");
+
+const updateButtons = () => {
+	const isDark = currentTheme() === "dark";
+	for (const button of buttons) {
+		button.setAttribute("aria-pressed", String(isDark));
+		button.hidden = false;
+	}
+};
+
+for (const button of buttons) {
+	button.addEventListener("click", () => {
+		const next = currentTheme() === "dark" ? "light" : "dark";
+		root.dataset.theme = next;
+		try {
+			localStorage.setItem("theme", next);
+		} catch {}
+		updateButtons();
+	});
+}
+
+media.addEventListener("change", updateButtons);
+updateButtons();
+</script>

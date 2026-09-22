@@ -27,6 +27,7 @@ const nb = {
 		description: "Dette er hvordan du kan kontakte meg.",
 		heading: "Kontakt meg",
 	},
+	theme: { toggle: "Mørk modus" },
 };
 
 const en: typeof nb = {
@@ -58,6 +59,7 @@ const en: typeof nb = {
 		description: "This is how you can contact me.",
 		heading: "Contact me",
 	},
+	theme: { toggle: "Dark mode" },
 };
 
 const ui = { nb, en };

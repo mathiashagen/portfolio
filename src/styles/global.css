@@ -1,16 +1,21 @@
 :root {
-	--color-bg: #ffffff;
-	--color-text: #000000;
+	color-scheme: light dark;
+
+	--color-bg: light-dark(#ffffff, #000000);
+	--color-text: light-dark(#000000, #ffffff);
+
 	--color-accent: #007acc;
+
 	--font-body: Arial, sans-serif;
 	--font-size-base: 1rem;
 }
 
-@media (prefers-color-scheme: dark) {
-	:root {
-		--color-bg: #000000;
-		--color-text: #ffffff;
-	}
+:root[data-theme="light"] {
+	color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+	color-scheme: dark;
 }
 
 body {
