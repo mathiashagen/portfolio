@@ -67,3 +67,12 @@ img {
 	max-width: 100%;
 	height: auto;
 }
+
+a {
+	color: var(--color-accent);
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}

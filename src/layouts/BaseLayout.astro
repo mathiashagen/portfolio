@@ -67,13 +67,20 @@ header {
 	align-items: center;
 	gap: 1rem;
 }
-main {
+main,
+header,
+footer {
 	max-width: 800px;
-	margin: 0 auto;
+	margin-inline: auto;
+	padding-inline: 1rem;
 }
-
 .brand {
 	font-family: var(--font-mono);
 	font-weight: 700;
+}
+footer {
+	color: var(--color-muted);
+	font-family: var(--font-mono);
+	font-size: 0.875rem;
 }
 </style>

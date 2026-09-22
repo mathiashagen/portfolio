@@ -12,6 +12,17 @@ const t = getUi(lang);
 <style>
 button {
 	min-height: var(--tap-size);
+	font: inherit;
+	font-family: var(--font-mono);
+	color: var(--color-text);
+	background: transparent;
+	border: 1px solid var(--color-border);
+	border-radius: 6px;
+	padding-inline: 0.75rem;
+	cursor: pointer;
+}
+button[aria-pressed="true"] {
+	border-color: var(--color-accent);
 }
 </style>
 
