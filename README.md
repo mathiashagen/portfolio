@@ -87,3 +87,8 @@ src/
   pages/             Routes; en/ mirrors the Norwegian ones
   styles/global.css  Design tokens and base styles
 ```
+
+## License
+
+The code is licensed under MIT, see [LICENSE](LICENSE). The written content and images in
+`src/content/` and `src/assets/` are not covered by it.
