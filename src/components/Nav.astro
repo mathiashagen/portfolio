@@ -16,8 +16,13 @@ const links: { href: string; label: string }[] = [
 
 <nav>
 	{links.map((link) => (
-		<a href={link.href} aria-current={currentPage === link.href ? "page" : undefined}>{link.label}</a>
-	))}
+	<a
+		href={link.href}
+		aria-current={currentPage === link.href ? "page" : undefined}
+	>
+		{link.label}
+	</a>
+))}
 </nav>
 
 <style>

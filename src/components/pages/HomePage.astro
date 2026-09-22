@@ -18,12 +18,12 @@ const newestProject = await getNewestProject(lang);
 		<p>{t.home.intro}</p>
 	</section>
 	{newestProject && (
-		<section>
-			<h2>{t.home.featured}</h2>
-			<ProjectCard project={newestProject} headingLevel={3} />
-			<a href={getRelativeLocaleUrl(lang, "projects")}>{t.home.allProjects}</a>
-		</section>
-	)}
+	<section>
+		<h2>{t.home.featured}</h2>
+		<ProjectCard project={newestProject} headingLevel={3} />
+		<a href={getRelativeLocaleUrl(lang, "projects")}>{t.home.allProjects}</a>
+	</section>
+)}
 </BaseLayout>
 
 <style>

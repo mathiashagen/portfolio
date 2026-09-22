@@ -6,9 +6,7 @@ const { tech } = Astro.props;
 ---
 
 <ul class="tags">
-	{tech.map((tech) => (
-        <li>{tech}</li>
-    ))}
+	{tech.map((tech) => <li>{tech}</li>)}
 </ul>
 
 <style>
