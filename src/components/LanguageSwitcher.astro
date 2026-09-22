@@ -1,0 +1,10 @@
+---
+import { getAlternateUrl, getLang, getUi } from "../i18n/ui";
+
+const lang = getLang(Astro.currentLocale);
+const altUrl = getAlternateUrl(Astro.url.pathname, lang);
+---
+
+<a href={altUrl.href} hreflang={altUrl.lang} lang={lang}>
+	{getUi(altUrl.lang).meta.languageName}
+</a>

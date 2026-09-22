@@ -1,4 +1,5 @@
 ---
+import LanguageSwitcher from "../components/LanguageSwitcher.astro";
 import Nav from "../components/Nav.astro";
 import ThemeToggle from "../components/ThemeToggle.astro";
 import { getLang, getUi } from "../i18n/ui";
@@ -43,6 +44,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 		<header>
 			<Nav />
 			<ThemeToggle />
+			<LanguageSwitcher />
 		</header>
 		<main>
 			<slot />

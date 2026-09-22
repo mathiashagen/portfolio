@@ -1,3 +1,5 @@
+import { getRelativeLocaleUrl } from "astro:i18n";
+
 const nb = {
 	nav: {
 		home: "Hjem",
@@ -28,7 +30,7 @@ const nb = {
 		heading: "Kontakt meg",
 	},
 	theme: { toggle: "Mørk modus" },
-	meta: { ogLocale: "nb_NO" },
+	meta: { ogLocale: "nb_NO", languageName: "Norsk" },
 };
 
 const en: typeof nb = {
@@ -61,18 +63,27 @@ const en: typeof nb = {
 		heading: "Contact me",
 	},
 	theme: { toggle: "Dark mode" },
-	meta: { ogLocale: "en_US" },
+	meta: { ogLocale: "en_US", languageName: "English" },
 };
 
 const ui = { nb, en };
 
-const getUi = (locale: string | undefined) => ui[getLang(locale)];
+export const getUi = (locale: string | undefined) => ui[getLang(locale)];
 
-const getLang = (locale: string | undefined): keyof typeof ui => {
+export const defaultLang = "nb";
+
+export const getLang = (locale: string | undefined): keyof typeof ui => {
 	if (locale !== undefined && Object.hasOwn(ui, locale)) {
 		return locale as keyof typeof ui;
 	}
-	return "nb";
+	return defaultLang;
 };
 
-export { getLang, getUi };
+export const getAlternateUrl = (pathname: string, lang: string) => {
+	const prefix = `/${lang}`;
+	const path = pathname.startsWith(`${prefix}/`)
+		? pathname.slice(prefix.length)
+		: pathname;
+	const otherLang = lang === defaultLang ? "en" : defaultLang;
+	return { lang: otherLang, href: getRelativeLocaleUrl(otherLang, path) };
+};
