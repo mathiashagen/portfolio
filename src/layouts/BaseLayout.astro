@@ -3,6 +3,7 @@ import Nav from "../components/Nav.astro";
 import ThemeToggle from "../components/ThemeToggle.astro";
 import { getLang } from "../i18n/ui";
 import "../styles/global.css";
+import { ClientRouter } from "astro:transitions";
 
 interface Props {
 	title: string;
@@ -29,6 +30,7 @@ const lang = getLang(Astro.currentLocale);
 			}
 		} catch {}
 		</script>
+		<ClientRouter />
 	</head>
 	<body>
 		<header>
