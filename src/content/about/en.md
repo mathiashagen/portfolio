@@ -1,12 +1,20 @@
 ---
 title: About me
-description: Mathias Hagen is a fullstack developer at LocalHost AS in Ålesund, Norway, with a bachelor's in computer science from NTNU.
+description: Mathias Hagen is a fullstack developer at LocalHost AS in Ålesund, Norway, with a bachelor's in computer engineering from NTNU and a trade certificate in computer electronics.
 ---
 
-I'm a fullstack developer at LocalHost AS in Ålesund, Norway. Day to day I work on a single
-product all the way from the database to the screen: .NET and RavenDB on the backend, React
-and TypeScript on the frontend. I have a bachelor's degree in computer science from NTNU in
-Ålesund.
+I'm a fullstack developer at LocalHost AS in Ålesund, Norway, where I work on the SaaS
+platform Overviu all the way from the database to the screen: .NET and RavenDB on the
+backend, React and TypeScript on the frontend. I've been part of it from the early stage
+towards commercialisation, and among other things built an MCP server that makes the
+platform's data available to AI assistants.
+
+## How I got here
+
+I started as an apprentice computer electronics technician, running servers and networks and
+doing support and customer work. After the trade certificate I took a bachelor's in computer
+engineering at NTNU in Ålesund through the vocational route into engineering. That background
+makes me think about how things will be run and used, not just how they will be written.
 
 ## What I like working on
 
@@ -24,5 +32,6 @@ the same way, as a project to learn Astro.
 
 ## Technologies
 
-- **Day to day:** C#/.NET, React, TypeScript, RavenDB
-- **In my spare time:** C++20, Astro, Docker, Proxmox, SQLite
+- **Day to day:** C#/.NET, React, TypeScript, RavenDB, Model Context Protocol
+- **Operations:** Microsoft Azure, Windows Server, Linux, Proxmox, Docker
+- **In my spare time:** C++20, Astro, SQLite
