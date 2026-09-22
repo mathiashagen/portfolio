@@ -18,6 +18,6 @@ export const getProjects = async (lang: string) => {
 	).toSorted((a, b) => b.data.date.getTime() - a.data.date.getTime());
 };
 
-export const getNewestProject = async (lang: string) => {
-	return (await getProjects(lang)).at(0);
+export const getFeaturedProject = async (lang: string) => {
+	return (await getProjects(lang)).find((project) => project.data.featured);
 };

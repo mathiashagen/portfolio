@@ -2,12 +2,12 @@
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { getLang, getUi } from "../../i18n/ui";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { getNewestProject } from "../../lib/projects";
+import { getFeaturedProject } from "../../lib/projects";
 import ProjectCard from "../ProjectCard.astro";
 
 const t = getUi(Astro.currentLocale);
 const lang = getLang(Astro.currentLocale);
-const newestProject = await getNewestProject(lang);
+const featuredProject = await getFeaturedProject(lang);
 ---
 
 <BaseLayout title={t.home.title} description={t.home.description}>
@@ -17,10 +17,10 @@ const newestProject = await getNewestProject(lang);
 		<p class="tagline">{t.home.tagline}</p>
 		<p>{t.home.intro}</p>
 	</section>
-	{newestProject && (
+	{featuredProject && (
 	<section>
 		<h2>{t.home.featured}</h2>
-		<ProjectCard project={newestProject} headingLevel={3} />
+		<ProjectCard project={featuredProject} headingLevel={3} />
 		<a href={getRelativeLocaleUrl(lang, "projects")}>{t.home.allProjects}</a>
 	</section>
 )}

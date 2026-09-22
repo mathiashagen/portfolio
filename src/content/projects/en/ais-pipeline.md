@@ -7,6 +7,7 @@ demo: https://ais.mathiashagen.dev
 date: 2026-06-19
 cover: ../../../assets/projects/ais-pipeline.png
 coverAlt: The radar display centred on Ålesund at a 60 nautical mile range. More than 700 ships appear as arrows coloured by ship type, spread along the coast and fjords on a dark background with range rings.
+featured: true
 ---
 
 AIS-pipeline reads raw AIS messages from Kystverket's open TCP feed, decodes the binary
