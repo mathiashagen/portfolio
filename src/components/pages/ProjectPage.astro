@@ -21,7 +21,8 @@ const { Content } = await render(project);
 			src={project.data.cover}
 			alt={project.data.coverAlt}
 			loading="eager"
-			widths={[400, 800, 1600]}
+			widths={[400, 800, 1200, 1600]}
+			quality={90}
 			sizes="(max-width: 800px) 100vw, 800px"
 		/>
 		<div class="prose"><Content /></div>

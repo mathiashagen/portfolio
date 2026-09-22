@@ -20,7 +20,8 @@ const lang = getLang(Astro.currentLocale);
 		src={project.data.cover}
 		alt={project.data.coverAlt}
 		sizes="(max-width: 800px) 100vw, 800px"
-		widths={[400, 800]}
+		widths={[400, 800, 1200]}
+		quality={90}
 	/>
 	<Heading>
 		<a href={getRelativeLocaleUrl(lang, `projects/${getProjectSlug(project)}`)}
@@ -37,5 +38,14 @@ article {
 	border: 1px solid var(--color-border);
 	border-radius: 8px;
 	padding: 1.5rem;
+}
+img {
+	display: block;
+	width: 100%;
+	aspect-ratio: 16 / 10;
+	object-fit: cover;
+	object-position: top;
+	border: 1px solid var(--color-border);
+	border-radius: 4px;
 }
 </style>
