@@ -1,0 +1,33 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { defaultLang } from "../i18n/ui";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const home = getRelativeLocaleUrl(defaultLang, "/");
+---
+
+<BaseLayout
+	title="404"
+	description="Siden finnes ikke. / This page doesn't exist."
+>
+	<p class="prompt">$ cd ~/finnes-ikke</p>
+	<h1>404</h1>
+	<p>
+		Siden finnes ikke. Den kan ha blitt flyttet, eller adressen er skrevet feil.
+	</p>
+	<p lang="en">
+		This page doesn't exist. It may have moved, or the address is mistyped.
+	</p>
+	<p>
+		<a href={home}>Til forsiden</a>
+		<span aria-hidden="true"> · </span>
+		<a href={home} lang="en">Go to the home page</a>
+	</p>
+</BaseLayout>
+
+<style>
+.prompt {
+	font-family: var(--font-mono);
+	color: var(--color-muted);
+}
+</style>

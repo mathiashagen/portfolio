@@ -26,5 +26,6 @@
 		"@astrojs/check": "^0.9.10",
 		"@biomejs/biome": "2.5.14",
 		"typescript": "^6.0.3"
-	}
+	},
+	"packageManager": "pnpm@10.29.3"
 }
