@@ -8,9 +8,15 @@ const nb = {
 		contact: "Kontakt",
 	},
 	home: {
-		title: "Velkommen",
-		description: "Dette er min portefølje.",
-		heading: "Velkommen til min portefølje",
+		title: "Hjem",
+		description:
+			"Mathias Hagen er utvikler med bakgrunn i C#/.NET og TypeScript, og bygger sanntidssystemer i C++ på fritiden.",
+		name: "Mathias Hagen",
+		tagline: "utvikler · C# · TypeScript · C++",
+		intro:
+			"Jeg jobber til daglig med C#/.NET og TypeScript, og bruker fritiden på å lære C++ ved å bygge ting som faktisk kjører, som en sanntids datapipeline for skipstrafikken langs norskekysten.",
+		featured: "Utvalgt prosjekt",
+		allProjects: "Alle prosjekter",
 	},
 	about: {
 		title: "Om",
@@ -42,8 +48,14 @@ const en: typeof nb = {
 	},
 	home: {
 		title: "Home",
-		description: "This is my portfolio.",
-		heading: "Welcome to my portfolio",
+		description:
+			"Mathias Hagen is a developer with a background in C#/.NET and TypeScript who builds real-time systems in C++ outside work.",
+		name: "Mathias Hagen",
+		tagline: "developer · C# · TypeScript · C++",
+		intro:
+			"I work with C#/.NET and TypeScript day to day, and spend my spare time learning C++ by building things that actually run, like a real-time data pipeline for ship traffic along the Norwegian coast.",
+		featured: "Featured project",
+		allProjects: "All projects",
 	},
 	about: {
 		title: "About",

@@ -8,8 +8,10 @@ import TechTags from "./TechTags.astro";
 
 interface Props {
 	project: CollectionEntry<"projects">;
+	headingLevel?: 2 | 3;
 }
-const { project } = Astro.props;
+const { project, headingLevel = 2 } = Astro.props;
+const Heading = `h${headingLevel}` as "h2" | "h3";
 const lang = getLang(Astro.currentLocale);
 ---
 
@@ -20,11 +22,11 @@ const lang = getLang(Astro.currentLocale);
 		sizes="(max-width: 800px) 100vw, 800px"
 		widths={[400, 800]}
 	/>
-	<h2>
+	<Heading>
 		<a href={getRelativeLocaleUrl(lang, `projects/${getProjectSlug(project)}`)}
 			>{project.data.title}</a
 		>
-	</h2>
+	</Heading>
 	<p>{project.data.summary}</p>
 	<TechTags tech={project.data.tech} />
 </article>

@@ -1,10 +1,49 @@
 ---
-import { getUi } from "../../i18n/ui";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { getLang, getUi } from "../../i18n/ui";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getNewestProject } from "../../lib/projects";
+import ProjectCard from "../ProjectCard.astro";
 
 const t = getUi(Astro.currentLocale);
+const lang = getLang(Astro.currentLocale);
+const newestProject = await getNewestProject(lang);
 ---
 
 <BaseLayout title={t.home.title} description={t.home.description}>
-	<h1>{t.home.heading}</h1>
+	<section>
+		<p class="prompt">$ whoami</p>
+		<h1>{t.home.name}</h1>
+		<p class="tagline">{t.home.tagline}</p>
+		<p>{t.home.intro}</p>
+	</section>
+	{newestProject && (
+		<section>
+			<h2>{t.home.featured}</h2>
+			<ProjectCard project={newestProject} headingLevel={3} />
+			<a href={getRelativeLocaleUrl(lang, "projects")}>{t.home.allProjects}</a>
+		</section>
+	)}
 </BaseLayout>
+
+<style>
+.prompt,
+.tagline {
+	font-family: var(--font-mono);
+	color: var(--color-muted);
+}
+h1::after {
+	content: "_" / "";
+	color: var(--color-accent);
+}
+@media (prefers-reduced-motion: no-preference) {
+	h1::after {
+		animation: blink 1s steps(1) infinite;
+	}
+}
+@keyframes blink {
+	50% {
+		opacity: 0;
+	}
+}
+</style>

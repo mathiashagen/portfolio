@@ -17,3 +17,7 @@ export const getProjects = async (lang: string) => {
 		await getCollection("projects", ({ id }) => id.startsWith(`${lang}/`))
 	).toSorted((a, b) => b.data.date.getTime() - a.data.date.getTime());
 };
+
+export const getNewestProject = async (lang: string) => {
+	return (await getProjects(lang)).at(0);
+};
