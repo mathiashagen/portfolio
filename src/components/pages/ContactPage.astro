@@ -1,10 +1,74 @@
 ---
 import { getUi } from "../../i18n/ui";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { contact } from "../../lib/site";
 
 const t = getUi(Astro.currentLocale);
+
+// Show "github.com/mathiashagen" instead of the full https:// URL.
+const displayUrl = (url: string) =>
+	url.replace(/^https:\/\/(www\.)?/, "").replace(/\/$/, "");
+
+const links = [
+	{
+		label: t.contact.email,
+		href: `mailto:${contact.email}`,
+		text: contact.email,
+		rel: undefined,
+	},
+	{
+		label: t.contact.linkedin,
+		href: contact.linkedin,
+		text: displayUrl(contact.linkedin),
+		rel: "me",
+	},
+	{
+		label: t.contact.github,
+		href: contact.github,
+		text: displayUrl(contact.github),
+		rel: "me",
+	},
+];
 ---
 
 <BaseLayout title={t.contact.title} description={t.contact.description}>
 	<h1>{t.contact.heading}</h1>
+	<p>{t.contact.intro}</p>
+	<ul>
+		{links.map((link) => (
+	<li>
+		<span class="label">{link.label}</span>
+		<a href={link.href} rel={link.rel}>
+			{link.text}
+		</a>
+	</li>
+))}
+	</ul>
 </BaseLayout>
+
+<style>
+ul {
+	list-style: none;
+	padding: 0;
+	margin-block: 2rem;
+	display: grid;
+	gap: 0.5rem;
+	font-family: var(--font-mono);
+}
+li {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	column-gap: 1rem;
+}
+.label {
+	min-width: 8ch;
+	color: var(--color-muted);
+}
+a {
+	display: inline-flex;
+	align-items: center;
+	min-height: var(--tap-size);
+	overflow-wrap: anywhere;
+}
+</style>

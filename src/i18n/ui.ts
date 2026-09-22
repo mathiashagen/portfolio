@@ -27,8 +27,14 @@ const nb = {
 	},
 	contact: {
 		title: "Kontakt",
-		description: "Dette er hvordan du kan kontakte meg.",
-		heading: "Kontakt meg",
+		description:
+			"Ta kontakt med Mathias Hagen på e-post, LinkedIn eller GitHub.",
+		heading: "Ta kontakt",
+		intro:
+			"Jeg svarer gjerne på spørsmål om prosjektene mine, jobb eller samarbeid. E-post er raskest, og CV sender jeg gjerne på forespørsel.",
+		email: "e-post",
+		linkedin: "linkedin",
+		github: "github",
 	},
 	theme: { toggle: "Mørk modus" },
 	meta: { ogLocale: "nb_NO", languageName: "Norsk" },
@@ -61,8 +67,14 @@ const en: typeof nb = {
 	},
 	contact: {
 		title: "Contact",
-		description: "This is how you can contact me.",
-		heading: "Contact me",
+		description:
+			"Get in touch with Mathias Hagen by email, LinkedIn or GitHub.",
+		heading: "Get in touch",
+		intro:
+			"I'm happy to answer questions about my projects, work or collaboration. Email is the fastest way to reach me, and my CV is available on request.",
+		email: "email",
+		linkedin: "linkedin",
+		github: "github",
 	},
 	theme: { toggle: "Dark mode" },
 	meta: { ogLocale: "en_US", languageName: "English" },
