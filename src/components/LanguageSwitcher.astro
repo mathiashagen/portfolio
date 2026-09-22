@@ -8,3 +8,12 @@ const altUrl = getAlternateUrl(Astro.url.pathname, lang);
 <a href={altUrl.href} hreflang={altUrl.lang} lang={altUrl.lang}>
 	{getUi(altUrl.lang).meta.languageName}
 </a>
+
+<style>
+a {
+	display: inline-flex;
+	align-items: center;
+	min-height: var(--tap-size);
+	padding-inline: 5px;
+}
+</style>

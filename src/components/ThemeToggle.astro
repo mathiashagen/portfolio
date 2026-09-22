@@ -9,6 +9,12 @@ const t = getUi(lang);
 	{t.theme.toggle}
 </button>
 
+<style>
+button {
+	min-height: var(--tap-size);
+}
+</style>
+
 <script>
 const root = document.documentElement;
 const media = window.matchMedia("(prefers-color-scheme: dark)");
