@@ -4,6 +4,7 @@ import LanguageSwitcher from "../components/LanguageSwitcher.astro";
 import Nav from "../components/Nav.astro";
 import ThemeToggle from "../components/ThemeToggle.astro";
 import { getLang, getUi } from "../i18n/ui";
+import themeInit from "../scripts/theme-init.js?raw";
 import "../styles/global.css";
 import { Font } from "astro:assets";
 
@@ -51,14 +52,7 @@ const imageUrl = new URL(image.src, Astro.site);
 		<meta name="twitter:card" content="summary_large_image">
 		<title>{pageTitle}</title>
 		<meta name="description" content={description}>
-		<script is:inline>
-		try {
-			const theme = localStorage.getItem("theme");
-			if (theme === "light" || theme === "dark") {
-				document.documentElement.dataset.theme = theme;
-			}
-		} catch {}
-		</script>
+		<script is:inline set:html={themeInit} />
 		<Font cssVariable="--font-mono" preload />
 		<Font cssVariable="--font-sans" preload />
 	</head>
