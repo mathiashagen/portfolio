@@ -37,7 +37,12 @@ const nb = {
 		github: "github",
 	},
 	theme: { toggle: "Mørk modus" },
-	meta: { ogLocale: "nb_NO", languageName: "Norsk" },
+	meta: {
+		ogLocale: "nb_NO",
+		languageName: "Norsk",
+		ogImageAlt:
+			"Mathias Hagen, fullstack-utvikler i Ålesund, i terminalstil på mørk bakgrunn.",
+	},
 };
 
 const en: typeof nb = {
@@ -77,7 +82,12 @@ const en: typeof nb = {
 		github: "github",
 	},
 	theme: { toggle: "Dark mode" },
-	meta: { ogLocale: "en_US", languageName: "English" },
+	meta: {
+		ogLocale: "en_US",
+		languageName: "English",
+		ogImageAlt:
+			"Mathias Hagen, fullstack developer in Ålesund, in terminal style on a dark background.",
+	},
 };
 
 const ui = { nb, en };

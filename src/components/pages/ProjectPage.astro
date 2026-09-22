@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import { getImage, Image } from "astro:assets";
 import { type CollectionEntry, render } from "astro:content";
 import { getUi } from "../../i18n/ui";
 import BaseLayout from "../../layouts/BaseLayout.astro";
@@ -12,9 +12,31 @@ interface Props {
 const t = getUi(Astro.currentLocale);
 const { project } = Astro.props;
 const { Content } = await render(project);
+
+// The cover, cropped to the 1200x630 size link previews expect. Cropped from
+// the bottom so map attributions in the corner stay visible. JPEG because
+// not every site that renders previews accepts WebP.
+const ogImage = await getImage({
+	src: project.data.cover,
+	width: 1200,
+	height: 630,
+	fit: "cover",
+	position: "bottom",
+	format: "jpeg",
+	quality: 85,
+});
 ---
 
-<BaseLayout title={project.data.title} description={project.data.summary}>
+<BaseLayout
+	title={project.data.title}
+	description={project.data.summary}
+	image={{
+	src: ogImage.src,
+	alt: project.data.coverAlt,
+	width: 1200,
+	height: 630,
+}}
+>
 	<article>
 		<header class="intro">
 			<h1>{project.data.title}</h1>
