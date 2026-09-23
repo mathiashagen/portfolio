@@ -8,6 +8,9 @@ date: 2026-06-19
 cover: ../../../assets/projects/ais-pipeline.png
 coverAlt: The radar display centered on Ålesund at a 60 nautical mile range. More than 700 ships appear as arrows colored by ship type, spread along the coast and fjords on a dark background with range rings.
 featured: true
+og:
+  image: ../../../assets/projects/og/ais-pipeline-en.png
+  alt: 'Preview for AIS-pipeline. On the left the title, "Ship traffic along the Norwegian coast, live", and the numbers 700+ ships in real time and 4.5 million messages decoded per second. On the right a section of the radar map around Ålesund with ships as colored arrows and dots.'
 ---
 
 AIS-pipeline reads raw AIS messages from Kystverket's open TCP feed, decodes the binary NMEA

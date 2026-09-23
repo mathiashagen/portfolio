@@ -20,6 +20,13 @@ const projects = defineCollection({
 			cover: image(),
 			coverAlt: z.string().min(1),
 			featured: z.boolean().default(false),
+			// A link preview made for small sizes. Without it, the cover is cropped.
+			og: z
+				.object({
+					image: image(),
+					alt: z.string().min(1),
+				})
+				.optional(),
 		}),
 });
 

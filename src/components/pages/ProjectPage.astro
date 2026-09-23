@@ -13,16 +13,18 @@ const t = getUi(Astro.currentLocale);
 const { project } = Astro.props;
 const { Content } = await render(project);
 
-// The cover, cropped to the 1200x630 size link previews expect. Cropped from
-// the bottom so map attributions in the corner stay visible. JPEG because
-// not every site that renders previews accepts WebP.
+// Link previews are shown small in feeds. A project can ship its own preview
+// image (og in the frontmatter), made to read at that size. Otherwise the cover
+// is cropped to 1200x630, from the bottom so map attributions in the corner
+// stay visible. JPEG for the photo-like cover, PNG to keep text sharp.
+const og = project.data.og;
 const ogImage = await getImage({
-	src: project.data.cover,
+	src: og?.image ?? project.data.cover,
 	width: 1200,
 	height: 630,
 	fit: "cover",
 	position: "bottom",
-	format: "jpeg",
+	format: og ? "png" : "jpeg",
 	quality: 85,
 });
 ---
@@ -32,7 +34,7 @@ const ogImage = await getImage({
 	description={project.data.summary}
 	image={{
 	src: ogImage.src,
-	alt: project.data.coverAlt,
+	alt: og?.alt ?? project.data.coverAlt,
 	width: 1200,
 	height: 630,
 }}

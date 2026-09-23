@@ -8,6 +8,9 @@ date: 2026-06-19
 cover: ../../../assets/projects/ais-pipeline.png
 coverAlt: Radarkartet sentrert på Ålesund med 60 nautiske mils rekkevidde. Over 700 skip vises som fargede piler etter skipstype, spredt langs kysten og fjordene på mørk bakgrunn med avstandsringer.
 featured: true
+og:
+  image: ../../../assets/projects/og/ais-pipeline-nb.png
+  alt: 'Forhåndsvisning for AIS-pipeline. Til venstre tittelen, «Skipstrafikken langs norskekysten, live», og tallene 700+ skip i sanntid og 4,5 millioner meldinger dekodet i sekundet. Til høyre et utsnitt av radarkartet rundt Ålesund med skip som fargede piler og prikker.'
 ---
 
 AIS-pipeline leser rå AIS-meldinger fra Kystverkets åpne TCP-strøm, dekoder de binære
